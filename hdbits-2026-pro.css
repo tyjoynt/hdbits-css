@@ -367,3 +367,39 @@ table.menu{margin-top:0 !important;border-radius:0 0 var(--radius) var(--radius)
 #logo::after{content:"HD\2009Bits";font:800 22px/1 var(--ui);letter-spacing:-.02em;color:var(--bright)}
 #logo::after{background:linear-gradient(90deg,var(--bright) 56%,var(--accent) 56%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ============================================================
+   v1.4 — wider center, one-line titles, touching rails, wordmark fix
+   ============================================================ */
+
+/* roomier centered column (never overflows the viewport) */
+#header.main, table.menu{max-width:min(1400px,96vw)}
+body > table.main:nth-child(3){max-width:min(1400px,96vw)}
+
+/* give the Name column far more room; trim the numeric tracks */
+#torrent-list thead tr,#torrent-list tbody tr{
+  grid-template-columns:34px 70px minmax(0,1fr) 40px 78px 66px 58px 46px 46px 110px}
+
+/* tighter rows */
+:root{--density:4px 12px}
+
+/* continuous left rail: move it onto the row border so bars touch top-to-bottom */
+#torrent-list tbody td.catcell:first-child{box-shadow:none}
+#torrent-list tbody tr{border-left:3px solid color-mix(in oklab,var(--cat) 45%,transparent);
+  border-bottom:0}
+#torrent-list tbody tr:has(a.fl){border-left-color:var(--gold)}
+#torrent-list tbody tr:has(.tag_seeding){border-left-color:var(--good)}
+#torrent-list tbody tr:has(.tag_leeching){border-left-color:var(--bad)}
+/* keep a faint row divider that doesn't interrupt the rail */
+#torrent-list tbody td{border-bottom:1px solid color-mix(in oklab,#fff 5%,transparent)}
+
+/* wordmark: clean two-tone HDBits (HD light, Bits accent) */
+#logo{display:inline-flex !important;align-items:baseline;background:none !important;
+  width:auto !important;height:auto !important;text-indent:0 !important;font-size:0;overflow:visible}
+#logo::before{content:"HD";font:800 23px/1 var(--ui);letter-spacing:-.02em;
+  color:var(--bright);-webkit-text-fill-color:initial;background:none}
+#logo::after{content:"Bits";font:800 23px/1 var(--ui);letter-spacing:-.02em;
+  color:var(--accent) !important;-webkit-text-fill-color:initial !important;background:none !important}
+
+/* a wider, more prominent search */
+#sitesearchinput{min-width:340px}
