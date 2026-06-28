@@ -316,3 +316,54 @@ input[type="submit"]:hover{filter:brightness(1.08)}
   width:5px;height:5px;border-radius:50%;background:var(--line-2);transition:background .13s ease,transform .13s ease}
 #sidebar-container td.embedded a:hover{background:var(--surface-2) !important;color:var(--bright) !important}
 #sidebar-container td.embedded a:hover::before{background:var(--accent);transform:scale(1.25)}
+
+
+/* ============================================================
+   v1.2 — global scale + centered column + header polish
+   ============================================================ */
+
+/* Bigger by default. Set your browser zoom back to 100%. Tweak this number. */
+body{zoom:1.3}
+
+/* Center the whole app into a tidy column instead of spanning the display */
+#header.main, table.menu{max-width:1200px}
+body > table.main:nth-child(3){max-width:1200px;margin-left:auto !important;margin-right:auto !important}
+
+/* --- header --- */
+#header.main{padding:10px 16px}
+#sitesearchinput{min-width:240px;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23828ea3%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%2211%22%20cy%3D%2211%22%20r%3D%227%22%2F%3E%3Cpath%20d%3D%22m21%2021-4.3-4.3%22%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;
+  background-position:12px center;background-size:14px;padding-left:34px}
+
+/* the ratio / UL / DL / bonus run -> one clean mono stat strip */
+#header .curuser-stats{font-size:12.5px}
+#header .curuser-stats:last-child{display:inline-flex;align-items:center;gap:9px;margin-top:6px;
+  padding:5px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface-2);
+  font-family:var(--mono);font-size:11.5px;color:var(--text)}
+#header .curuser-stats:last-child font{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--dim) !important}
+#header .curuser-stats:last-child font[color="#000000"]{color:var(--bright) !important}
+#header .curuser-stats:last-child font[color="green"]{color:var(--good) !important}
+#header .curuser-stats:last-child font[color="darkred"]{color:var(--dim) !important}
+#header .curuser-stats:last-child a{color:var(--accent) !important;text-decoration:none}
+#header .curuser-stats .buddylist,#header .curuser-stats .mytorrents{opacity:.45}
+
+/* nav: connect under the header as a pill bar */
+table.menu{margin-top:4px !important;padding:3px 6px}
+table.menu td.menunavigation a.normal,
+table.menu td.menunavigation_new a.normal{border-radius:999px;margin:4px 2px;padding:9px 16px}
+
+/* ============================================================
+   v1.3 — fuse the header + nav into one cohesive card
+   ============================================================ */
+#header.main{border-radius:var(--radius) var(--radius) 0 0;margin-bottom:0 !important;
+  border-bottom:none !important}
+table.menu{margin-top:0 !important;border-radius:0 0 var(--radius) var(--radius);
+  border-top:1px solid var(--line) !important}
+
+/* brand: drop the logo image and render a clean text wordmark like the preview.
+   If your logo isn't #logo, tell me what it is and I'll retarget — until then the
+   real logo just stays, which is harmless. */
+#logo{position:relative;background:none !important;width:auto !important;height:auto !important;
+  text-indent:0 !important;font-size:0}
+#logo::after{content:"HD\2009Bits";font:800 22px/1 var(--ui);letter-spacing:-.02em;color:var(--bright)}
+#logo::after{background:linear-gradient(90deg,var(--bright) 56%,var(--accent) 56%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
