@@ -975,3 +975,33 @@ form[name="jump"]{color:var(--dim);font-size:13px;max-width:min(980px,96vw);marg
   background:color-mix(in oklab,var(--accent) 10%,var(--surface)) !important;
   border-left:3px solid var(--accent) !important}
 .readpost td.comment p.sub{color:var(--bright) !important}
+
+/* ============================================================
+   v2.8 — split author + post into two separate cards
+   ============================================================ */
+/* meta header becomes a standalone rounded bar above the cards */
+.std-content table:has(> tbody > tr > td.embedded > a[href*="quotepost"]){
+  width:calc(100% - 28px) !important;margin:22px auto 6px !important;
+  border:1px solid var(--line) !important;border-radius:var(--radius) !important;
+  background:var(--surface-2) !important;padding:9px 14px !important}
+
+/* readpost: transparent shell, 14px gap between the two column-cards */
+.readpost{border:0 !important;background:transparent !important;box-shadow:none !important;
+  border-collapse:separate !important;border-spacing:14px 0 !important;width:100% !important;margin:0 0 4px !important}
+.readpost > tbody > tr > td{border:1px solid var(--line) !important;vertical-align:top}
+
+/* PERSON card (left column) */
+.readpost > tbody > tr > td[width="150"]{background:var(--surface-2) !important}
+.readpost > tbody > tr:first-child > td[width="150"]{
+  border-radius:var(--radius) var(--radius) 0 0 !important;border-bottom:0 !important}
+.readpost > tbody > tr:last-child > td[width="150"]{
+  border-radius:0 0 var(--radius) var(--radius) !important;border-top:0 !important}
+
+/* POST card (right column) */
+.readpost td.comment{background:var(--surface) !important;
+  border-radius:var(--radius) var(--radius) 0 0 !important;border-bottom:0 !important}
+.readpost > tbody > tr:last-child > td:last-child{background:var(--surface) !important;
+  border-radius:0 0 var(--radius) var(--radius) !important;border-top:0 !important}
+
+/* relative-time emphasis (wrapped by userscript) */
+.x-ago{color:var(--bright) !important;font-weight:700}
