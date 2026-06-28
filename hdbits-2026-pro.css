@@ -880,3 +880,89 @@ body,#torrent-list,#latest_posts,#offerstable,.x-stats{font-variant-numeric:tabu
 .unlockednew,.lockednew{background-color:var(--accent) !important}
 .locked,.lockednew{-webkit-mask:var(--ico-lock) center/17px no-repeat;mask:var(--ico-lock) center/17px no-repeat}
 .hasposted{-webkit-mask:var(--ico-posted) center/19px no-repeat !important;mask:var(--ico-posted) center/19px no-repeat !important}
+
+/* ============================================================
+   v2.6 — Forum thread view (viewtopic): posts as cards
+   ============================================================ */
+/* thread title + breadcrumb */
+td.bottom:has(.std-content) > h1{text-align:center;font-size:21px;font-weight:800;color:var(--bright);
+  letter-spacing:-.01em;margin:6px 0 14px}
+td.bottom:has(.std-content) > h1 a{color:var(--accent) !important;text-decoration:none}
+td.bottom:has(.std-content) > h1 a:hover{text-decoration:underline}
+
+/* pager + watch-thread bar */
+div[style*="position: relative"]{max-width:min(980px,96vw);margin:0 auto 6px;position:relative}
+div[style*="position: relative"] > p[align="center"]{color:var(--dim);font-size:13px}
+div[style*="position: relative"] > p[align="center"] a{color:var(--accent) !important;text-decoration:none;
+  padding:3px 8px;border-radius:7px;display:inline-block}
+div[style*="position: relative"] > p[align="center"] a:hover{background:var(--surface-2)}
+div[style*="position: relative"] > p[align="center"] font.gray{color:var(--bg) !important;background:var(--accent);
+  padding:3px 9px;border-radius:7px;font-weight:700}
+.js-watchtopic{color:var(--dim) !important;font-size:12px;text-decoration:none !important;
+  padding:5px 11px;border:1px solid var(--line) !important;border-radius:999px;background:var(--surface)}
+.js-watchtopic:hover{color:var(--accent) !important;border-color:var(--accent) !important}
+
+/* posts container -> transparent, centered column */
+.std-content{border:0 !important;background:transparent !important;width:100% !important;
+  max-width:min(980px,96vw);margin:0 auto;border-collapse:separate}
+.std-content > tbody > tr > td{padding:0 !important;border:0 !important}
+
+/* post meta header bar (the #id / author / date / Quote row) */
+.std-content table:has(> tbody > tr > td.embedded > a[href*="quotepost"]){
+  width:100% !important;margin:20px 0 0 !important;background:var(--surface-2) !important;
+  border:1px solid var(--line) !important;border-bottom:0 !important;
+  border-radius:var(--radius) var(--radius) 0 0;padding:9px 14px !important;text-align:left}
+.std-content table:has(> tbody > tr > td.embedded > a[href*="quotepost"]) td{
+  border:0 !important;background:none !important;padding:0 !important;color:var(--dim);font-size:12px}
+.std-content table:has(> tbody > tr > td.embedded > a[href*="quotepost"]) a[href*="userdetails"] b{
+  color:var(--accent) !important}
+.std-content table:has(> tbody > tr > td.embedded > a[href*="quotepost"]) > tbody > tr > td > a:first-child{
+  color:var(--dim) !important;text-decoration:none}
+.std-content table:has(> tbody > tr > td.embedded > a[href*="quotepost"]) a[href*="quotepost"]{
+  text-decoration:none}
+.std-content table:has(> tbody > tr > td.embedded > a[href*="quotepost"]) a[href*="quotepost"] b{
+  color:var(--accent) !important;font-weight:600}
+.std-content img[src*="top.gif"]{opacity:.45}
+
+/* post body card */
+.readpost{width:100% !important;margin:0 0 4px !important;border:1px solid var(--line) !important;border-top:0 !important;
+  border-radius:0 0 var(--radius) var(--radius);background:var(--surface) !important;
+  border-collapse:separate;overflow:hidden;box-shadow:0 16px 40px -32px #000}
+.readpost > tbody > tr > td{border:0 !important;vertical-align:top}
+/* author sidebar */
+.readpost > tbody > tr > td[width="150"]{width:168px !important;background:color-mix(in oklab,#fff 2%,transparent) !important;
+  border-right:1px solid var(--line) !important;padding:16px 12px !important;text-align:center !important}
+.readpost > tbody > tr > td[width="150"] img{max-width:128px !important;height:auto !important;
+  border-radius:10px;display:block;margin:0 auto}
+.readpost .default_avatar{width:96px !important;height:96px !important;margin:0 auto !important;border-radius:10px;
+  background-color:var(--surface-2) !important;background-size:cover !important;opacity:.7}
+.readpost > tbody > tr > td[width="150"] p{font-size:11px !important;color:var(--dim) !important;
+  margin:10px 0 0 !important;text-align:center !important;line-height:1.55}
+/* comment body */
+.readpost td.comment{padding:15px 17px !important;color:var(--text) !important;line-height:1.62;font-size:13.5px}
+.readpost td.comment a{color:var(--accent) !important}
+/* quote blocks */
+.readpost td.comment p.sub{margin:2px 0 6px !important;font-size:12px;color:var(--accent);font-weight:600}
+.readpost td.comment table.main{width:auto !important;margin:0 0 6px !important;border:0 !important;
+  border-left:2px solid var(--accent) !important;border-radius:0 7px 7px 0;
+  background:color-mix(in oklab,var(--accent) 7%,var(--surface-2)) !important}
+.readpost td.comment table.main td{border:0 !important;padding:9px 13px !important;
+  color:var(--dim) !important;font-size:12.5px;line-height:1.55}
+/* footer row (back to top + profile/pm) */
+.readpost > tbody > tr:last-child > td{border-top:1px solid var(--line) !important;
+  padding:9px 14px !important;background:color-mix(in oklab,#fff 1.5%,transparent) !important}
+.readpost > tbody > tr:last-child td[width="150"]{background:color-mix(in oklab,#fff 1.5%,transparent) !important;
+  border-right:0 !important}
+.readpost > tbody > tr:last-child a{color:var(--dim) !important;font-size:11px;text-decoration:none;font-weight:600}
+.readpost > tbody > tr:last-child a:hover{color:var(--accent) !important}
+.readpost > tbody > tr:last-child td:last-child{text-align:right}
+.readpost > tbody > tr:last-child p{margin:0 !important}
+
+/* bottom action buttons + quick jump */
+input.btn,input[type="submit"]{background:var(--surface-2) !important;color:var(--text) !important;
+  border:1px solid var(--line-2) !important;border-radius:9px !important;padding:8px 16px !important;
+  font-weight:600;cursor:pointer;font-family:var(--ui) !important}
+input.btn:hover,input[type="submit"]:hover{border-color:var(--accent) !important;color:var(--bright) !important}
+select{background:var(--surface-2) !important;color:var(--text) !important;border:1px solid var(--line-2) !important;
+  border-radius:9px !important;padding:7px 11px !important;font-family:var(--ui) !important}
+form[name="jump"]{color:var(--dim);font-size:13px;max-width:min(980px,96vw);margin:0 auto}
