@@ -1,0 +1,286 @@
+/*!
+ * HDBits 2026 — paste into Settings → custom CSS field (no extension needed).
+ * Flat rules, no @-moz-document wrapper. Edit --accent / --density below to taste.
+ */
+
+/* ---------- Design tokens ---------- */
+:root {
+  --accent:       #6ea8fe;   /* change me for a different accent */
+  --density:      8px 11px;  /* row padding; try 4px 9px for compact */
+
+  --bg:           #0d1016;
+  --surface-1:    #141a26;
+  --surface-2:    #1b2231;
+  --row-alt:      #11161f;
+  --border:       color-mix(in oklab, #fff 8%, transparent);
+  --border-2:     color-mix(in oklab, #fff 15%, transparent);
+  --text:         #c5cfde;
+  --text-dim:     #828ea3;
+  --text-bright:  #eef3fa;
+  --good:         #5fd38d;
+  --warn:         #f1b24b;
+  --bad:          #f06b7b;
+  --accent-soft:  color-mix(in oklab, var(--accent) 18%, transparent);
+  --radius:       11px;
+  --radius-sm:    7px;
+}
+
+/* ---------- Base ---------- */
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif !important;
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+* { scrollbar-color: var(--border-2) transparent; }
+
+table.main { background: transparent !important; }
+
+/* ---------- Header ---------- */
+#header.main {
+  background: var(--surface-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  margin: 10px auto 8px !important;
+}
+#header td.embedded { vertical-align: middle; }
+
+#sitesearchinput {
+  background: var(--surface-2) !important;
+  border: 1px solid var(--border-2) !important;
+  color: var(--text) !important;
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  outline: none;
+}
+#searchselector { display: flex; gap: 4px; list-style: none; margin: 0 0 6px; padding: 0; }
+#searchselector li {
+  font-size: 11px; padding: 3px 9px; border-radius: 999px;
+  color: var(--text-dim); background: var(--surface-2); cursor: pointer;
+}
+#searchselector li.selected { background: var(--accent-soft); color: var(--text-bright); }
+
+#header .curuser-stats { color: var(--text-dim); font-size: 12px; }
+#header .curuser-stats a { color: var(--text) !important; }
+#header .curuser-stats a:hover { color: var(--accent) !important; }
+#header font { color: var(--text) !important; }
+#header font[color="green"]   { color: var(--good) !important; }
+#header font[color="darkred"] { color: var(--bad) !important; }
+#header font[color="#1900D1"] { color: var(--accent) !important; }
+
+/* ---------- Top menu ---------- */
+table.menu {
+  background: var(--surface-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius);
+  margin: 0 auto 12px !important;
+  overflow: hidden;
+}
+table.menu a.normal {
+  display: block; padding: 11px 6px;
+  color: var(--text-dim) !important; font-weight: 600;
+  font-size: 12px; letter-spacing: .02em;
+  transition: background .15s, color .15s;
+}
+table.menu td.menunavigation_new a.normal { color: var(--accent) !important; }
+table.menu a.normal:hover { background: var(--surface-2) !important; color: var(--text-bright) !important; }
+
+/* ---------- Sidebar ---------- */
+#sidebar-container { padding: 0 14px 14px 0 !important; }
+#sidebar-container table.main {
+  background: var(--surface-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius);
+  padding: 4px 12px 12px;
+  min-width: 190px;
+}
+#sidebar-container h2 {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--accent); margin: 14px 0 4px; font-weight: 700;
+  background: none !important;
+}
+#sidebar-container a { color: var(--text) !important; }
+#sidebar-container a:hover { color: var(--accent) !important; }
+
+/* ---------- Search box ---------- */
+#searchbox {
+  background: var(--surface-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  margin: 0 auto 14px;
+  overflow: hidden;
+}
+#searchbox th {
+  background: var(--surface-2) !important; color: var(--text-dim) !important;
+  font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+  padding: 8px 12px !important; text-align: left; border: none !important;
+}
+#searchbox td { border-color: var(--border) !important; }
+#searchbox b { color: var(--text-bright); }
+#searchbox .catlink { color: var(--accent) !important; }
+
+#tabs { display: flex; gap: 4px; list-style: none; margin: 0 0 8px; padding: 0; border: none; }
+#tabs li.tab a {
+  display: block; padding: 7px 14px; border-radius: 999px;
+  color: var(--text-dim) !important; font-size: 12px; font-weight: 600;
+}
+#tabs li.tab a:hover { background: var(--surface-2) !important; text-decoration: none; }
+#tabs li.tab.selected a { background: var(--accent-soft) !important; color: var(--text-bright) !important; }
+
+/* ---------- Inputs, buttons, selects ---------- */
+input[type="text"], #search, #imdb, #fromCal, #toCal {
+  background: var(--surface-2) !important;
+  border: 1px solid var(--border-2) !important;
+  color: var(--text) !important;
+  border-radius: var(--radius-sm);
+  padding: 6px 9px; outline: none;
+}
+input[type="text"]:focus, #search:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+select {
+  background: var(--surface-2) !important; color: var(--text) !important;
+  border: 1px solid var(--border-2) !important; border-radius: var(--radius-sm);
+  padding: 5px 8px;
+}
+input[type="button"], #searchbox button {
+  background: var(--surface-2) !important; color: var(--text) !important;
+  border: 1px solid var(--border-2) !important; border-radius: var(--radius-sm);
+  padding: 6px 12px; font: inherit; cursor: pointer; transition: .15s;
+}
+input[type="button"]:hover, #searchbox button:hover {
+  border-color: var(--accent) !important; color: var(--text-bright) !important;
+}
+input[type="submit"] {
+  background: var(--accent) !important; color: #0a0e16 !important;
+  border: 1px solid transparent !important; border-radius: var(--radius-sm);
+  padding: 6px 14px; font: inherit; font-weight: 600; cursor: pointer; transition: .15s;
+}
+input[type="submit"]:hover { filter: brightness(1.08); }
+
+.chosen-container .chosen-choices, .chosen-container-single .chosen-single {
+  background: var(--surface-2) !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: none !important; color: var(--text) !important;
+}
+.chosen-container .chosen-drop { background: var(--surface-1) !important; border-color: var(--border-2) !important; }
+.chosen-results li { color: var(--text); }
+.chosen-results li.highlighted { background: var(--accent-soft) !important; color: var(--text-bright) !important; }
+.chosen-choices li.search-field input { color: var(--text) !important; }
+
+.autocomplete-suggestions {
+  background: var(--surface-1) !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: var(--radius-sm); color: var(--text);
+}
+.autocomplete-suggestion { padding: 6px 10px; }
+.autocomplete-suggestion.selected, .autocomplete-suggestion:hover {
+  background: var(--accent-soft) !important; color: var(--text-bright);
+}
+
+/* ---------- Pagination ---------- */
+#resultsarea > p { color: var(--text-dim); margin: 10px 0; }
+#resultsarea > p a { padding: 3px 8px; border-radius: 6px; }
+#resultsarea > p a:hover { background: var(--surface-2); text-decoration: none; }
+#resultsarea > p b { color: var(--text-bright); }
+
+/* ---------- The torrent table ---------- */
+#torrent-list {
+  width: 100% !important;
+  background: var(--surface-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius);
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden;
+}
+#torrent-list thead th {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--surface-2) !important; color: var(--text-dim) !important;
+  font-size: 11px; text-transform: uppercase; letter-spacing: .05em;
+  text-align: left; white-space: nowrap;
+  padding: 9px 10px !important;
+  border-bottom: 1px solid var(--border-2) !important;
+  background-image: none !important;
+}
+#torrent-list thead th a { color: var(--text-dim) !important; font-weight: 700; }
+#torrent-list thead th a:hover { color: var(--text-bright) !important; }
+#torrent-list thead th.center { text-align: center; }
+
+#torrent-list tbody td {
+  padding: var(--density);
+  border-bottom: 1px solid var(--border) !important;
+  vertical-align: middle; background: transparent;
+}
+#torrent-list tbody tr:nth-child(even) td { background: var(--row-alt); }
+#torrent-list tbody tr:hover td { background: var(--surface-2) !important; }
+#torrent-list tbody tr:last-child td { border-bottom: none !important; }
+
+#torrent-list tbody tr.featured td { background: color-mix(in oklab, var(--accent) 7%, transparent); }
+#torrent-list tbody tr.featured:hover td { background: color-mix(in oklab, var(--accent) 13%, transparent) !important; }
+
+/* status rail: gold = freeleech, green = seeding, red = leeching */
+#torrent-list tbody tr:has(a.fl) td:first-child        { box-shadow: inset 3px 0 0 var(--warn); }
+#torrent-list tbody tr:has(.tag_seeding) td:first-child { box-shadow: inset 3px 0 0 var(--good); }
+#torrent-list tbody tr:has(.tag_leeching) td:first-child{ box-shadow: inset 3px 0 0 var(--bad); }
+
+#torrent-list td.catcell { padding: 4px 6px; text-align: center; width: 1%; white-space: nowrap; }
+
+#torrent-list td a[href$="hit=1"] { color: var(--text-bright) !important; font-weight: 600; }
+#torrent-list td a[href$="hit=1"]:hover { color: var(--accent) !important; }
+
+#torrent-list .genres { color: var(--text-dim); font-size: 11px; }
+#torrent-list .genres a { color: var(--text-dim) !important; }
+#torrent-list .genres a:hover { color: var(--accent) !important; }
+
+#torrent-list .minicon { opacity: .6; transition: opacity .15s; vertical-align: middle; }
+#torrent-list a:hover .minicon { opacity: 1; }
+
+#torrent-list .tag {
+  display: inline-block; margin-left: 6px; padding: 1px 7px;
+  border-radius: 999px; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; line-height: 1.6;
+  vertical-align: middle;
+}
+.tag.internal     { background: color-mix(in oklab, var(--accent) 22%, transparent); color: var(--accent); }
+.tag.exclusive    { background: color-mix(in oklab, var(--warn) 20%, transparent); color: var(--warn); }
+.tag.new          { background: color-mix(in oklab, var(--good) 22%, transparent); color: var(--good); }
+.tag.tag_seeding  { background: color-mix(in oklab, var(--good) 20%, transparent); color: var(--good); }
+.tag.tag_leeching { background: color-mix(in oklab, var(--bad) 20%, transparent); color: var(--bad); }
+
+#torrent-list .tvdb_button, #torrent-list button {
+  background: var(--surface-2) !important; color: var(--text-dim) !important;
+  border: 1px solid var(--border-2) !important; border-radius: 6px;
+  padding: 3px 8px; margin-left: 6px; font-size: 11px; cursor: pointer; transition: .15s;
+}
+#torrent-list .tvdb_button:hover, #torrent-list button:hover {
+  border-color: var(--accent) !important; color: var(--text-bright) !important;
+}
+
+#torrent-list td.center, #torrent-list td.right {
+  font-variant-numeric: tabular-nums; color: var(--text-dim); white-space: nowrap;
+}
+#torrent-list td.right b a { color: var(--text) !important; }
+#torrent-list font[color="#000000"] { color: var(--text-bright) !important; }
+#torrent-list font[color="#aa0000"] { color: var(--bad) !important; }
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center; color: var(--text-dim); font-size: 11px;
+  padding: 16px 0; margin-top: 18px; border-top: 1px solid var(--border);
+}
+
+/* ---------- Date-picker popup ---------- */
+.dhtmlxcalendar .entbox { background: var(--surface-1) !important; border-color: var(--border-2) !important; color: var(--text); }
+.dhtmlxcalendar td { color: var(--text); }
+.dhtmlxcalendar .weekend { color: var(--text-dim); }
+.dhtmlxcalendar .selected, .dhtmlxcalendar .current {
+  background: var(--accent-soft) !important; color: var(--text-bright) !important; border-radius: 4px;
+}
