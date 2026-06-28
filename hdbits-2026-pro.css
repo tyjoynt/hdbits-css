@@ -488,3 +488,155 @@ table.menu{justify-content:center}
   margin:0 5px 0 0;vertical-align:middle;position:relative;top:-1px}
 /* a little column breathing room now that nothing wraps */
 #searchbox td{padding:5px 12px 5px 6px}
+
+/* ============================================================
+   v2.0 — torrent details page (#details), collapsible cards
+   ============================================================ */
+
+/* title + exclusive banner */
+.torrent-title{text-align:center;margin:20px 0 6px}
+.torrent-title h1{font-size:24px;font-weight:800;letter-spacing:-.015em;color:var(--bright);display:inline-block}
+.torrent-title .tag{display:inline-block;font-size:9.5px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.05em;padding:3px 9px;border-radius:999px;position:static !important;bottom:auto !important;
+  margin-left:6px;vertical-align:middle}
+.torrent-title .tag.internal{background:color-mix(in oklab,var(--accent) 22%,transparent);color:var(--accent)}
+.torrent-title .tag.exclusive{background:color-mix(in oklab,var(--accent-2) 24%,transparent);color:#c3b6ff}
+h3.h3_exclusive{max-width:min(1080px,95vw);margin:0 auto 8px;text-align:center;
+  background:color-mix(in oklab,var(--gold) 11%,transparent);
+  border:1px solid color-mix(in oklab,var(--gold) 30%,transparent);color:var(--gold);
+  border-radius:var(--radius-sm);padding:10px 16px;font-size:14px;font-weight:600}
+
+/* #details table -> stacked cards */
+#details{display:block;width:auto !important;max-width:min(1080px,95vw);margin:14px auto;
+  border:none !important;border-spacing:0}
+#details > tbody{display:block}
+#details > tbody > tr{display:block;margin-bottom:12px}
+#details > tbody > tr > td{display:block;background:var(--surface) !important;
+  border:1px solid var(--line) !important;border-radius:var(--radius);padding:16px 18px !important;
+  box-shadow:0 18px 44px -30px #000}
+
+/* section labels -> eyebrows (+ collapse affordance) */
+#details .label{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 11px;display:flex;align-items:center;gap:8px}
+#details .label a{color:var(--dim) !important;text-transform:none;letter-spacing:0;font-weight:500;font-size:12px}
+#details .label a:hover{color:var(--accent) !important}
+#details .label.collapsable,.x-collapsable-head{cursor:pointer;user-select:none}
+#details .plusminus,.x-chev{color:var(--dim);font-weight:700;font-family:var(--mono);font-size:13px}
+.x-cbody.x-closed{display:none}
+
+/* download toolbar (first card) */
+#details a.index.js-download{font-family:var(--mono);font-size:12.5px;color:var(--bright) !important}
+#details a.index.js-download:hover{color:var(--accent) !important}
+#details .minicon{opacity:.65;vertical-align:middle}
+#details a:hover .minicon{opacity:1}
+#details .tag.freeleech{background:color-mix(in oklab,var(--gold) 18%,transparent) !important;
+  color:var(--gold) !important;font-weight:700;font-size:11px;padding:4px 11px;border-radius:999px;
+  text-transform:uppercase;letter-spacing:.04em}
+#details .fl_token_button input[type="submit"]{background:var(--accent) !important;color:#0a0e16 !important;
+  border-radius:var(--radius-sm);padding:7px 13px;font-weight:600;border:none}
+
+/* about-film card */
+.contentlayout{width:100% !important;border:none !important}
+.contentlayout img[src*="imdb_poster"]{border-radius:11px;
+  box-shadow:0 18px 36px -16px #000,0 0 0 1px var(--line-2);max-height:340px !important}
+.contentlayout h1{font-size:21px;color:var(--bright);margin:0}
+.contentlayout h1 a{color:var(--bright) !important}
+.contentlayout h1 a:hover{color:var(--accent) !important}
+.contentlayout h3{color:var(--dim);font-weight:500;margin:2px 0 10px}
+#imdbinfo{border:none !important}
+#imdbinfo th{color:var(--dim) !important;font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+  text-align:left;font-weight:600;padding:4px 14px 4px 0;vertical-align:baseline;white-space:nowrap;
+  background:none !important}
+#imdbinfo td{color:var(--text);padding:4px 0;background:none !important}
+#imdbinfo td a{color:var(--accent) !important}
+#plotcell{padding-left:22px;vertical-align:top}
+#plotcell th{color:var(--dim) !important;font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+  text-align:left;background:none !important}
+#plotcell td{color:var(--text)}
+#cast{margin-top:14px}
+#cast td{padding:0 14px 0 0;text-align:center;vertical-align:top}
+#cast .actorpic{border-radius:12px;box-shadow:0 0 0 1px var(--line);max-height:84px}
+#cast a{color:var(--text) !important;font-size:11.5px;display:inline-block;line-height:1.3}
+#cast a:hover{color:var(--accent) !important}
+.imdb{opacity:.75}
+
+/* four-up stat grids (Release + Technical) */
+.contentlayout.fourcell{display:grid !important;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line) !important;border-radius:var(--radius);overflow:hidden}
+.contentlayout.fourcell > tbody{display:contents}
+.contentlayout.fourcell > tbody > tr{display:contents}
+.contentlayout.fourcell > tbody > tr > td{display:block !important;background:var(--surface);
+  padding:13px 16px !important;border:none !important;width:auto !important}
+.fourcell .content{border:none !important;width:100%}
+.fourcell .content th{display:block;color:var(--dim) !important;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.05em;font-weight:600;text-align:left;padding:0 0 2px;background:none !important;white-space:nowrap}
+.fourcell .content td{display:block;color:var(--bright);font-size:13px;padding:0 0 9px;
+  background:none !important;font-family:var(--mono)}
+.fourcell .content td a{color:var(--accent) !important;font-family:var(--ui)}
+.fourcell .content tr:last-child td{padding-bottom:0}
+
+/* NFO */
+#details pre{background:#0b0f17 !important;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:18px 20px;font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--text);
+  white-space:pre-wrap;overflow-x:auto}
+#details pre a{color:var(--accent) !important}
+.label_showhide{cursor:pointer;color:var(--accent)}
+.label_showhide span{color:var(--accent)}
+
+/* tags input */
+#tagassociate{background:var(--surface-2) !important;border:1px solid var(--line-2) !important;
+  color:var(--text) !important;border-radius:var(--radius-sm);padding:8px 12px;width:100%;max-width:420px}
+
+/* other copies table */
+.table_other_copies{display:table !important;width:100% !important;border:none !important;
+  border-collapse:separate;border-spacing:0}
+.table_other_copies thead th{background:var(--surface-2) !important;color:var(--dim) !important;
+  font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;text-align:left;
+  padding:10px 12px !important;border:none !important;border-bottom:1px solid var(--line-2) !important}
+.table_other_copies tbody td{border:none !important;
+  border-bottom:1px solid color-mix(in oklab,#fff 5%,transparent) !important;
+  padding:9px 12px !important;vertical-align:middle;background:transparent !important}
+.table_other_copies tbody tr:hover td{background:var(--surface-2) !important}
+.table_other_copies tbody tr:last-child td{border-bottom:none !important}
+.table_other_copies td a{color:var(--bright) !important;font-weight:500}
+.table_other_copies td a:hover{color:var(--accent) !important}
+.table_other_copies .tag{font-size:8.5px;padding:1px 6px;border-radius:999px;margin-left:7px;
+  text-transform:uppercase;font-weight:800;letter-spacing:.04em}
+.table_other_copies .tag.internal{background:color-mix(in oklab,var(--accent) 22%,transparent);color:var(--accent)}
+.table_other_copies .tag.exclusive{background:color-mix(in oklab,var(--accent-2) 24%,transparent);color:#c3b6ff}
+.table_other_copies td:nth-child(3),.table_other_copies td:nth-child(4),
+.table_other_copies td:nth-child(5),.table_other_copies td:nth-child(6){
+  font-family:var(--mono);font-size:12px;color:var(--dim);white-space:nowrap}
+.table_other_copies td:nth-child(5){color:var(--good)}
+.table_other_copies td[id^="codec"]{padding:6px 8px !important}
+
+/* comments */
+p.sub{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:var(--dim);font-size:12px;
+  margin:16px 0 0;background:none !important;font-family:var(--mono)}
+p.sub a{color:var(--accent) !important;font-family:var(--ui)}
+p.sub b{color:var(--bright)}
+table.main:has(> tbody > tr > td.text){border:none !important;background:var(--surface-2) !important;
+  border-radius:var(--radius-sm);margin:6px 0 14px;overflow:hidden}
+table.main:has(> tbody > tr > td.text) > tbody > tr > td{border:none !important;vertical-align:top;
+  padding:14px !important;background:transparent !important}
+td.text{color:var(--text) !important;line-height:1.6}
+td.text a{color:var(--accent) !important}
+td[width="150"]{width:150px !important}
+td[width="150"] img{border-radius:12px;max-width:120px;height:auto}
+.default_avatar{border-radius:12px;min-width:64px;min-height:64px;background:var(--raised)}
+/* quote blocks inside comments */
+td.text table.main td[style*="dashed"]{border:none !important;
+  border-left:3px solid var(--accent) !important;background:#0c1018 !important;
+  border-radius:0 8px 8px 0;padding:9px 13px !important;color:var(--dim) !important}
+td.text table.main{border:none !important;background:none !important;margin:6px 0}
+td.text pre{background:#0b0f17 !important;border:1px solid var(--line);border-radius:8px;padding:12px;
+  font-family:var(--mono);font-size:11.5px}
+
+/* pagination + buttons */
+p[align="center"] font.gray{color:var(--dim) !important}
+p[align="center"] b a{color:var(--accent) !important}
+#details button,#thanksbutton{background:var(--surface-2) !important;color:var(--text) !important;
+  border:1px solid var(--line-2) !important;border-radius:var(--radius-sm);padding:8px 14px;font:inherit;
+  font-weight:600;cursor:pointer}
+#details button:hover,#thanksbutton:hover{border-color:var(--accent) !important;color:var(--bright) !important}
+#thankers a{color:var(--accent) !important}
