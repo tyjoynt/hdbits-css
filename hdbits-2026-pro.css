@@ -419,3 +419,21 @@ body > table.main:nth-child(3){max-width:min(1400px,96vw)}
   font:600 9px/1.5 var(--ui) !important;letter-spacing:.04em;text-transform:uppercase;
   padding:1px 6px !important;border-radius:5px;display:inline-block;
   width:auto !important;height:auto !important}
+
+/* ============================================================
+   v1.6 — flatten the boxy menu into clean inline pills
+   ============================================================ */
+/* collapse the table so cells size to content instead of equal bordered columns */
+table.menu{display:flex !important;align-items:center;gap:2px;padding:6px 12px !important;
+  border-radius:0 0 var(--radius) var(--radius)}
+table.menu > tbody,table.menu > tbody > tr{display:contents !important}
+table.menu td{display:inline-flex !important;flex:0 0 auto;width:auto !important;
+  border:none !important;background:none !important;padding:0 !important}
+
+/* links become quiet text pills; no box at rest, subtle fill on hover */
+table.menu td a.normal{display:block;padding:8px 15px;border-radius:999px;
+  border:none !important;background:none !important;box-shadow:none !important;
+  color:var(--dim) !important;font-weight:600;font-size:13px;text-decoration:none;
+  transition:background .13s,color .13s}
+table.menu td a.normal:hover{background:var(--surface-2) !important;color:var(--bright) !important}
+table.menu td.menunavigation_new a.normal{color:var(--dim) !important}
