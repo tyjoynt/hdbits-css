@@ -403,3 +403,19 @@ body > table.main:nth-child(3){max-width:min(1400px,96vw)}
 
 /* a wider, more prominent search */
 #sitesearchinput{min-width:340px}
+
+/* ============================================================
+   v1.5 — stop duplicating the source label (base theme prints its own)
+   ============================================================ */
+/* drop MY generated source text; keep the base theme's own label */
+#torrent-list .medium1::before,#torrent-list .medium2::before,#torrent-list .medium3::before,
+#torrent-list .medium4::before,#torrent-list .medium5::before,#torrent-list .medium6::before{
+  content:none !important}
+/* if the base puts no text in the chip, don't show an empty pill */
+#torrent-list td.catcell[id^="codec"] [class^="medium"]:empty{display:none !important}
+/* style whatever source label the base does render, to match the chip look */
+#torrent-list td.catcell[id^="codec"] [class^="medium"]{
+  background:color-mix(in oklab,#fff 8%,transparent) !important;color:var(--bright) !important;
+  font:600 9px/1.5 var(--ui) !important;letter-spacing:.04em;text-transform:uppercase;
+  padding:1px 6px !important;border-radius:5px;display:inline-block;
+  width:auto !important;height:auto !important}
