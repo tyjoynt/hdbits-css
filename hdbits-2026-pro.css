@@ -263,3 +263,56 @@ input[type="submit"]:hover{filter:brightness(1.08)}
 /* ---------- footer ---------- */
 .footer{text-align:center;color:var(--dim);font-size:11px;padding:16px 0;margin-top:18px;
   border-top:1px solid var(--line)}
+
+
+/* ============================================================
+   v1.1 — replace legacy minicons + rebuild sidebar
+   ============================================================ */
+
+/* --- action icons (download / rss / bookmark / wishlist) --- */
+#torrent-list img.minicon{display:none !important}
+#torrent-list td:nth-child(3) a.js-download,
+#torrent-list td:nth-child(3) a.js-rssadd,
+#torrent-list td:nth-child(3) a.js-bookmarkadd,
+#torrent-list td:nth-child(3) a.js-wishlistadd{
+  display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;
+  margin:0 5px 0 0;vertical-align:middle;text-decoration:none}
+#torrent-list td:nth-child(3) a.js-download::before,
+#torrent-list td:nth-child(3) a.js-rssadd::before,
+#torrent-list td:nth-child(3) a.js-bookmarkadd::before,
+#torrent-list td:nth-child(3) a.js-wishlistadd::before{
+  content:"";width:15px;height:15px;background-color:var(--dim);
+  -webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:center;mask-position:center;transition:background-color .14s}
+#torrent-list td:nth-child(3) a.js-download::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%203v11m0%200%204-4m-4%204-4-4%22%2F%3E%3Cpath%20d%3D%22M4%2016v3a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-3%22%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%203v11m0%200%204-4m-4%204-4-4%22%2F%3E%3Cpath%20d%3D%22M4%2016v3a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-3%22%2F%3E%3C%2Fsvg%3E")}
+#torrent-list td:nth-child(3) a.js-rssadd::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%225.5%22%20cy%3D%2218.5%22%20r%3D%221.7%22%20fill%3D%22black%22%20stroke%3D%22none%22%2F%3E%3Cpath%20d%3D%22M5%2012a7%207%200%200%201%207%207M5%205a14%2014%200%200%201%2014%2014%22%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%225.5%22%20cy%3D%2218.5%22%20r%3D%221.7%22%20fill%3D%22black%22%20stroke%3D%22none%22%2F%3E%3Cpath%20d%3D%22M5%2012a7%207%200%200%201%207%207M5%205a14%2014%200%200%201%2014%2014%22%2F%3E%3C%2Fsvg%3E")}
+#torrent-list td:nth-child(3) a.js-bookmarkadd::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%203h12v18l-6-4-6%204z%22%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%203h12v18l-6-4-6%204z%22%2F%3E%3C%2Fsvg%3E")}
+#torrent-list td:nth-child(3) a.js-wishlistadd::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m12%203%202.7%205.4%206%20.9-4.3%204.2%201%206L12%2017l-5.4%202.8%201-6L3.3%209.6l6-.9z%22%2F%3E%3C%2Fsvg%3E");mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m12%203%202.7%205.4%206%20.9-4.3%204.2%201%206L12%2017l-5.4%202.8%201-6L3.3%209.6l6-.9z%22%2F%3E%3C%2Fsvg%3E")}
+#torrent-list td:nth-child(3) a.js-download:hover::before{background-color:var(--accent)}
+#torrent-list td:nth-child(3) a.js-rssadd:hover::before{background-color:#f0922f}
+#torrent-list td:nth-child(3) a.js-bookmarkadd:hover::before{background-color:var(--accent)}
+#torrent-list td:nth-child(3) a.js-wishlistadd:hover::before{background-color:var(--gold)}
+
+/* --- sidebar: keep it, make it a real nav panel --- */
+#sidebar-container table.main{background:var(--surface) !important;border:1px solid var(--line) !important;
+  border-radius:var(--radius);padding:8px 8px 12px}
+#sidebar-container table{background:none !important;border:none !important}
+#sidebar-container td.embedded{display:block}
+
+#sidebar-container h2{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);
+  font-weight:700;background:none !important;border:none !important;
+  margin:14px 8px 6px;padding:0 0 6px;border-bottom:1px solid var(--line) !important}
+#sidebar-container td.embedded > h2:first-child{margin-top:2px}
+
+/* hide the literal "&nbsp; - " dashes and the <br>s, then re-style links as rows */
+#sidebar-container table[cellpadding="7"]{width:100%}
+#sidebar-container table[cellpadding="7"] td{font-size:0 !important;line-height:0;padding:0 !important}
+#sidebar-container br{display:none}
+#sidebar-container td.embedded a{
+  display:block;font-size:12.5px;line-height:1.25;color:var(--text) !important;text-decoration:none !important;
+  padding:7px 10px 7px 24px;border-radius:8px;position:relative;
+  transition:background .13s ease,color .13s ease}
+#sidebar-container td.embedded a::before{content:"";position:absolute;left:11px;top:50%;translate:0 -50%;
+  width:5px;height:5px;border-radius:50%;background:var(--line-2);transition:background .13s ease,transform .13s ease}
+#sidebar-container td.embedded a:hover{background:var(--surface-2) !important;color:var(--bright) !important}
+#sidebar-container td.embedded a:hover::before{background:var(--accent);transform:scale(1.25)}
