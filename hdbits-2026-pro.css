@@ -437,3 +437,18 @@ table.menu td a.normal{display:block;padding:8px 15px;border-radius:999px;
   transition:background .13s,color .13s}
 table.menu td a.normal:hover{background:var(--surface-2) !important;color:var(--bright) !important}
 table.menu td.menunavigation_new a.normal{color:var(--dim) !important}
+
+/* ============================================================
+   v1.7 — center the nav; flatten the browse tabs into clean pills
+   ============================================================ */
+table.menu{justify-content:center}
+
+#tabs{display:flex !important;gap:6px;flex-wrap:wrap;list-style:none;margin:0 0 10px;padding:0}
+#tabs, #tabs *{border:none !important;box-shadow:none !important}
+#tabs li,#tabs li.tab{background:none !important;padding:0 !important;margin:0 !important;list-style:none}
+#tabs a{display:block;padding:8px 16px;border-radius:999px;background:none !important;
+  color:var(--dim) !important;font-weight:600;font-size:13px;text-decoration:none;
+  transition:background .13s,color .13s}
+#tabs a:hover{background:var(--surface-2) !important;color:var(--bright) !important;text-decoration:none}
+#tabs .selected a,#tabs a.selected,#tabs li.selected a,#tabs li.tab.selected a{
+  background:var(--accent) !important;color:#0a0e16 !important}
