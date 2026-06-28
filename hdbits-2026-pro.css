@@ -1,7 +1,7 @@
 /*! HDBits 2026 — production theme. Host on GitHub Pages / jsDelivr (text/css).
    Browse listing re-architected with CSS grid; quality/category chips are generated
    from the existing sprite classes; status rail from :has(). Edit tokens below. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
   --accent:#6ea8fe; --accent-2:#8a7bf0;
@@ -19,7 +19,7 @@
   --density:9px 12px;     /* row padding; compact = 5px 12px */
   --radius:12px; --radius-sm:8px;
   --ui:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --mono:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 
 /* ---------- base ---------- */
@@ -853,3 +853,11 @@ td.bottom:has(#latest_posts) > p[align="center"] a b{color:var(--accent) !import
 #latest_posts td:nth-child(4) a b{color:var(--accent) !important}
 #latest_posts td:nth-child(5) a b,
 #latest_posts + table td:nth-child(4) a b{font-family:var(--ui) !important;font-size:11px;color:var(--accent) !important}
+
+/* ============================================================
+   v2.4 — remove monospace everywhere (keep aligned numerals)
+   ============================================================ */
+/* header stat/user/message pills get their font from the userscript -> override */
+.x-stat,.x-user,.x-msg,.x-stats,.x-stats *,.x-chev{font-family:var(--ui) !important}
+/* tabular figures so numeric columns still line up without a mono face */
+body,#torrent-list,#latest_posts,#offerstable,.x-stats{font-variant-numeric:tabular-nums}
