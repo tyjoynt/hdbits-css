@@ -966,3 +966,12 @@ input.btn:hover,input[type="submit"]:hover{border-color:var(--accent) !important
 select{background:var(--surface-2) !important;color:var(--text) !important;border:1px solid var(--line-2) !important;
   border-radius:9px !important;padding:7px 11px !important;font-family:var(--ui) !important}
 form[name="jump"]{color:var(--dim);font-size:13px;max-width:min(980px,96vw);margin:0 auto}
+
+/* ============================================================
+   v2.7 — more contrast in quote blocks
+   ============================================================ */
+.readpost td.comment table.main td{color:var(--text) !important;font-size:13px;line-height:1.6}
+.readpost td.comment table.main{
+  background:color-mix(in oklab,var(--accent) 10%,var(--surface)) !important;
+  border-left:3px solid var(--accent) !important}
+.readpost td.comment p.sub{color:var(--bright) !important}
