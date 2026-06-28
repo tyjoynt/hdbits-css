@@ -640,3 +640,93 @@ p[align="center"] b a{color:var(--accent) !important}
   font-weight:600;cursor:pointer}
 #details button:hover,#thanksbutton:hover{border-color:var(--accent) !important;color:var(--bright) !important}
 #thankers a{color:var(--accent) !important}
+
+/* ============================================================
+   v2.1 — Offers page (#offerstable), styled like the browse list
+   ============================================================ */
+
+/* page title + submenu pills */
+h1.center{text-align:center;font-size:24px;font-weight:800;color:var(--bright);letter-spacing:-.015em;margin:8px 0 16px}
+table:has(.submenu-highlight__link){display:flex !important;justify-content:center;gap:6px;
+  border:none !important;width:auto !important;margin:0 auto 16px}
+table:has(.submenu-highlight__link) > tbody,
+table:has(.submenu-highlight__link) > tbody > tr{display:contents}
+table:has(.submenu-highlight__link) td{border:none !important;background:none !important;padding:0 !important;width:auto !important}
+table:has(.submenu-highlight__link) td a{display:block;padding:9px 18px;border-radius:999px;color:var(--dim) !important;
+  font-weight:600;font-size:13px;text-decoration:none;transition:background .13s,color .13s}
+table:has(.submenu-highlight__link) td a:hover{background:var(--surface-2) !important;color:var(--bright) !important}
+table:has(.submenu-highlight__link) td.submenu-highlight a{background:var(--accent) !important;color:#0a0e16 !important;font-weight:700}
+
+/* table -> card + grid rows */
+#offerstable{width:100% !important;max-width:min(1400px,96vw);margin:0 auto;
+  background:var(--surface) !important;border:1px solid var(--line) !important;border-radius:var(--radius);
+  overflow:hidden;border-collapse:collapse !important;box-shadow:0 20px 50px -30px #000}
+#offerstable thead tr,#offerstable tbody tr{display:grid;
+  grid-template-columns:34px 76px minmax(0,1fr) 150px 52px 152px 48px 76px 56px 88px;align-items:center}
+#offerstable thead tr{position:sticky;top:0;z-index:5;background:var(--surface-2);
+  border-bottom:1px solid var(--line-2);cursor:default}
+#offerstable thead th{padding:10px 8px;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--dim) !important;font-weight:700;background:none !important;border:none !important;
+  justify-self:start;white-space:nowrap}
+#offerstable thead th:first-child{grid-column:1 / 3;justify-self:center}
+#offerstable thead th:nth-child(6){grid-column:span 3}
+#offerstable thead th a{color:var(--dim) !important;font-weight:700}
+#offerstable thead th a:hover{color:var(--bright) !important}
+
+#offerstable tbody tr{--cat:var(--c-misc);padding:4px 0;transition:background .14s ease;
+  border-left:3px solid color-mix(in oklab,var(--cat) 45%,transparent)}
+#offerstable tbody tr:nth-child(odd){background:color-mix(in oklab,#fff 1.4%,transparent)}
+#offerstable tbody tr:hover{background:var(--surface-2)}
+#offerstable tbody td{border:none !important;
+  border-bottom:1px solid color-mix(in oklab,#fff 5%,transparent) !important;
+  padding:6px 8px;background:transparent !important;vertical-align:middle;min-width:0}
+#offerstable tbody tr:last-child td{border-bottom:none !important}
+
+/* category rail */
+#offerstable tbody tr:has(.category1){--cat:var(--c-movie)}
+#offerstable tbody tr:has(.category2){--cat:var(--c-tv)}
+#offerstable tbody tr:has(.category3){--cat:var(--c-doc)}
+#offerstable tbody tr:has(.category4){--cat:var(--c-music)}
+#offerstable tbody tr:has(.category5){--cat:var(--c-sport)}
+#offerstable tbody tr:has(.category6){--cat:var(--c-music)}
+#offerstable tbody tr:has(.category7){--cat:var(--c-xxx)}
+
+/* keep the base category glyph + source/codec badges, just center them */
+#offerstable td.catcell{display:flex;align-items:center;justify-content:center;padding:4px 6px}
+#offerstable td[id^="codec"]{display:flex;align-items:center;justify-content:flex-start;padding-left:8px}
+
+/* name + tag pill */
+#offerstable tbody td:nth-child(3){min-width:0}
+#offerstable tbody td:nth-child(3) b a{color:var(--bright) !important;font-weight:600}
+#offerstable tbody td:nth-child(3) b a:hover{color:var(--accent) !important}
+#offerstable .tag.internal{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:999px;
+  font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;vertical-align:middle;
+  background:color-mix(in oklab,var(--accent) 22%,transparent);color:var(--accent)}
+
+/* numeric / data columns */
+#offerstable tbody td:nth-child(4),
+#offerstable tbody td:nth-child(5),
+#offerstable tbody td:nth-child(7),
+#offerstable tbody td:nth-child(8){font-family:var(--mono);font-size:11.5px;color:var(--dim)}
+#offerstable tbody td:nth-child(4){white-space:nowrap;padding-left:8px !important;padding-right:8px !important}
+#offerstable tbody td:nth-child(4) *{padding:0 !important}
+#offerstable tbody td:nth-child(5){text-align:center}
+#offerstable tbody td:nth-child(5) a,#offerstable tbody td:nth-child(7) a{color:var(--text) !important}
+#offerstable tbody td:nth-child(7) a:hover,#offerstable tbody td:nth-child(5) a:hover{color:var(--accent) !important}
+
+/* uploader */
+#offerstable tbody td:nth-child(6){font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#offerstable tbody td:nth-child(6) a{color:var(--accent) !important}
+#offerstable tbody td:nth-child(6) em{color:var(--dim);font-style:italic}
+#offerstable tbody td:nth-child(6) font{color:var(--dim) !important;font-family:var(--mono);font-size:10.5px}
+
+/* votes (for, against) */
+#offerstable tbody td:nth-child(8) font[color="green"]{color:var(--good) !important}
+#offerstable tbody td:nth-child(8) font[color="red"]{color:var(--bad) !important}
+
+/* vote action + allowed status */
+#offerstable tbody td:nth-child(9){text-align:center}
+#offerstable tbody td:nth-child(9) a{color:var(--accent) !important;font-weight:600}
+#offerstable tbody td:nth-child(10){text-align:center}
+#offerstable tbody td:nth-child(10) b{color:var(--good) !important;font-weight:700;font-size:12px}
+#offerstable tbody td:nth-child(10) em{color:var(--gold) !important;font-style:italic;font-size:12px}
