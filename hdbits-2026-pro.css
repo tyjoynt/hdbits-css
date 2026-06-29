@@ -1071,3 +1071,57 @@ td.bottom:has(#news) > table[border="1"] > tbody > tr > td{border:0 !important;p
 .interiortable label{display:inline-flex;align-items:center;gap:8px;padding:5px 0;color:var(--text);line-height:1.5}
 input[type="radio"],input[type="checkbox"]{accent-color:var(--accent)}
 a.link{color:var(--accent) !important;text-decoration:none;font-size:12px}
+
+/* ============================================================
+   v3.0 — Requests page (open bounty requests)
+   ============================================================ */
+/* filter form -> card */
+.sources_table{margin:0 auto 6px !important;border:1px solid var(--line) !important;border-radius:var(--radius);
+  background:var(--surface) !important;border-collapse:separate;overflow:hidden}
+.sources_table th.noselect{background:var(--surface-2) !important;color:var(--dim) !important;font-weight:700;
+  font-size:11px;text-transform:uppercase;letter-spacing:.06em;text-align:left;padding:9px 14px !important;border:0 !important}
+.sources_table td{border:0 !important;padding:7px 10px !important;color:var(--text)}
+.sources_table label.bold{color:var(--dim);font-weight:600;font-size:12px}
+.sources_table .borderaround{border:0 !important;padding-top:12px !important}
+.sources_table input[type="text"]{background:var(--surface-2);border:1px solid var(--line-2);border-radius:8px;
+  padding:7px 10px;color:var(--text);font-family:var(--ui)}
+
+/* pagination row (top + bottom) -> tidy centered wrap */
+td.embedded:has(#table_open_requests) > p[align="center"]{display:flex !important;flex-wrap:wrap;
+  justify-content:center;align-items:center;gap:5px;max-width:min(1100px,96vw);margin:14px auto;
+  color:var(--dim);font-size:12px}
+td.embedded:has(#table_open_requests) > p[align="center"] br{display:none}
+td.embedded:has(#table_open_requests) > p[align="center"] b{font-weight:600;color:var(--text)}
+td.embedded:has(#table_open_requests) > p[align="center"] a{text-decoration:none;color:var(--accent) !important;
+  padding:4px 9px;border-radius:7px;background:var(--surface)}
+td.embedded:has(#table_open_requests) > p[align="center"] a:hover{background:var(--surface-2)}
+
+/* requests table -> grid card */
+#table_open_requests{display:block;width:100% !important;max-width:min(1180px,96vw);margin:0 auto 6px;
+  border:1px solid var(--line) !important;border-radius:var(--radius);background:var(--surface) !important;
+  overflow:hidden;box-shadow:0 16px 40px -32px #000;border-collapse:separate}
+#table_open_requests > thead,#table_open_requests > tbody{display:block}
+#table_open_requests > thead > tr,#table_open_requests > tbody > tr{display:grid;
+  grid-template-columns:42px minmax(0,1fr) 76px 50px 68px 92px 50px 78px 74px 78px 112px;align-items:center}
+#table_open_requests > tbody > tr{border-top:1px solid color-mix(in oklab,#fff 5%,transparent)}
+#table_open_requests th,#table_open_requests td{border:0 !important;padding:8px !important;min-width:0;
+  font-size:12px;text-align:center}
+#table_open_requests thead th{background:var(--surface-2) !important;color:var(--dim) !important;font-weight:700;
+  font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+#table_open_requests thead th a{color:var(--dim) !important;text-decoration:none}
+#table_open_requests thead th a:hover{color:var(--accent) !important}
+#table_open_requests th.left,#table_open_requests td.left{text-align:left}
+#table_open_requests td.left a{color:var(--bright) !important;text-decoration:none;font-weight:600;font-size:12.5px}
+#table_open_requests td.left a:hover{color:var(--accent) !important}
+#table_open_requests td.left strong{font-weight:600}
+#table_open_requests td:nth-child(3),#table_open_requests td:nth-child(4){color:var(--dim);font-size:11px}
+#table_open_requests td:nth-child(5) a{color:var(--accent) !important;text-decoration:none;font-size:11px}
+#table_open_requests td:nth-child(6) strong{color:var(--gold) !important;font-weight:700;font-variant-numeric:tabular-nums}
+#table_open_requests td:nth-child(7),#table_open_requests td:nth-child(9){font-variant-numeric:tabular-nums;color:var(--text)}
+#table_open_requests td:nth-child(8),#table_open_requests td:nth-child(10){color:var(--dim);font-size:11px;line-height:1.3}
+#table_open_requests td:nth-child(11) a{color:var(--accent) !important;text-decoration:none}
+#table_open_requests td:nth-child(11) em{color:var(--dim);font-style:italic}
+#table_open_requests td.catcell{justify-self:center}
+.tag.internal{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;font-size:9px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.04em;vertical-align:middle;
+  background:color-mix(in oklab,var(--accent) 18%,transparent);color:var(--accent) !important}
