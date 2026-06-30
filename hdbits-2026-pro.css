@@ -1166,3 +1166,18 @@ a.link{display:inline-block;margin-top:10px}
 .interiortable td.rowhead{text-align:left !important;color:var(--dim) !important;font-weight:500}
 .interiortable td[align="right"]{text-align:right !important;color:var(--bright) !important;
   font-variant-numeric:tabular-nums;font-weight:600}
+
+/* ============================================================
+   v3.3 — finalize poll/stats: kill base header bar, clean dividers
+   ============================================================ */
+/* section headers: no base background/border/bar — clean eyebrow only */
+#news > h2,td.bottom:has(#news) > h2{background:transparent !important;background-image:none !important;
+  border:0 !important;box-shadow:none !important}
+/* keep every inner surface transparent so each section reads as one panel */
+td.bottom:has(#news) > table[border="1"] td,
+td.bottom:has(#news) .interiortable,
+td.bottom:has(#news) .interiortable td{background:transparent !important}
+/* stats: full-width row dividers (on the flex row, not the content-sized cells) */
+.interiortable:has(td.rowhead) td{border:0 !important;padding:9px 2px !important}
+.interiortable:has(td.rowhead) tr{border-bottom:1px solid color-mix(in oklab,#fff 5%,transparent) !important}
+.interiortable:has(td.rowhead) tr:last-child{border-bottom:0 !important}
