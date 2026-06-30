@@ -1135,3 +1135,34 @@ td.embedded:has(#table_open_requests) > p[align="center"] a:hover{background:var
   left:auto !important;bottom:auto !important;width:auto !important;z-index:100000}
 .notification-frame{width:380px !important;max-width:calc(100vw - 36px) !important;
   max-height:70vh;overflow-y:auto}
+
+/* ============================================================
+   v3.2 — front page: collapsible section headers + poll/stats polish
+   ============================================================ */
+/* section headers (News / Poll / Stats) — kill base bar, make them header rows */
+#news > h2,td.bottom:has(#news) > h2{display:flex !important;align-items:center;gap:8px;
+  background:transparent !important;border:0 !important;padding:0 !important;
+  margin:22px auto 10px !important;max-width:min(900px,96vw);width:100%;text-align:left;
+  font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent) !important;font-weight:700}
+#news > h2{margin-top:0 !important}
+.x-collapsable-head{cursor:pointer !important;user-select:none}
+.x-collapsable-head:hover{color:var(--bright) !important}
+.x-collapsable-head .x-chev{margin-left:auto;color:var(--dim);font-size:15px}
+.x-cbody.x-closed{display:none !important}
+
+/* poll polish */
+td.bottom:has(#news) > table[border="1"] > tbody > tr > td[align="center"]{text-align:left !important}
+.interiortable .text > p[align="center"] b{display:block;text-align:center;color:var(--bright);font-size:15px;margin-bottom:14px}
+.interiortable .text br{display:none}
+.interiortable label{display:flex !important;align-items:center;gap:9px;padding:6px 2px;color:var(--text);
+  line-height:1.4;cursor:pointer}
+.interiortable label:hover{color:var(--bright)}
+.interiortable .text form > p[align="center"]:last-child{text-align:center !important;margin-top:16px}
+input[type="submit"].btn{padding:9px 22px !important;line-height:1.4 !important;height:auto !important;white-space:nowrap}
+a.link{display:inline-block;margin-top:10px}
+
+/* stats polish — full-width label / value rows */
+.interiortable:has(td.rowhead) tr{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.interiortable td.rowhead{text-align:left !important;color:var(--dim) !important;font-weight:500}
+.interiortable td[align="right"]{text-align:right !important;color:var(--bright) !important;
+  font-variant-numeric:tabular-nums;font-weight:600}
