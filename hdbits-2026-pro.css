@@ -1181,3 +1181,39 @@ td.bottom:has(#news) .interiortable td{background:transparent !important}
 .interiortable:has(td.rowhead) td{border:0 !important;padding:9px 2px !important}
 .interiortable:has(td.rowhead) tr{border-bottom:1px solid color-mix(in oklab,#fff 5%,transparent) !important}
 .interiortable:has(td.rowhead) tr:last-child{border-bottom:0 !important}
+
+/* ============================================================
+   v3.4 — poll/stats: nuke base bars/borders inside the sections
+   ============================================================ */
+#news > h2,td.bottom:has(#news) > h2{background:none !important;border:none !important;
+  box-shadow:none !important;outline:none !important}
+#news > h2::before,#news > h2::after,
+td.bottom:has(#news) > h2::before,td.bottom:has(#news) > h2::after{content:none !important;display:none !important}
+/* poll/stats card = single clean surface, no inner bars or borders */
+td.bottom:has(#news) > table[border="1"]{background:var(--surface) !important;border:1px solid var(--line) !important}
+td.bottom:has(#news) > table[border="1"] *{background-color:transparent !important;border-color:transparent !important}
+td.bottom:has(#news) > table[border="1"] td{border:0 !important}
+/* re-add just the stat row dividers */
+.interiortable:has(td.rowhead) tr{border-bottom:1px solid color-mix(in oklab,#fff 6%,transparent) !important}
+.interiortable:has(td.rowhead) tr:last-child{border-bottom:0 !important}
+
+/* ============================================================
+   v3.5 — poll/stats header bars: match as DESCENDANTS + colhead classes
+   (beats base h2/colhead bg that survived the v3.4 universal nuke)
+   ============================================================ */
+/* any h2 in the front-page column, however nested — clean accent eyebrow, no bar */
+td.bottom:has(#news) h2{background:none !important;background-image:none !important;
+  border:0 !important;box-shadow:none !important;
+  display:flex !important;align-items:center;gap:8px;padding:2px !important;margin:22px 0 10px !important;
+  font-size:11.5px !important;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--accent) !important;font-weight:700}
+/* if the bar is a header CELL (colhead/colcat/cathead), style it as an intentional card header */
+td.bottom:has(#news) td.colhead,
+td.bottom:has(#news) td.colcat,
+td.bottom:has(#news) td.cathead,
+td.bottom:has(#news) td[class*="head"],
+td.bottom:has(#news) td[class*="cat"]{
+  background:var(--surface-2) !important;background-image:none !important;
+  color:var(--accent) !important;font-weight:700 !important;text-transform:uppercase;letter-spacing:.1em;
+  font-size:11px !important;text-align:left !important;padding:9px 16px !important;
+  border:0 !important;border-bottom:1px solid var(--line) !important}
